@@ -1,4 +1,4 @@
-# Model-Medic 🩺
+# Model-Medic
 
 Welcome to **Model-Medic**! This repository contains my internship project, which I built to make debugging and diagnosing Machine Learning models a lot easier and more automated. 
 
