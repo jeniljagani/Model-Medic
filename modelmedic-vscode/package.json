@@ -1,0 +1,60 @@
+{
+  "name": "modelmedic-vscode",
+  "displayName": "ModelMedic",
+  "description": "VS Code extension for ModelMedic data analysis",
+  "version": "1.0.0",
+  "publisher": "modelmedic",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:modelmedic.analyzeDataset"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "modelmedic.analyzeDataset",
+        "title": "ModelMedic: Analyze Dataset"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceExtname == .csv",
+          "command": "modelmedic.analyzeDataset",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "ModelMedic",
+      "properties": {
+        "modelmedic.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Python executable used to run ModelMedic"
+        },
+        "modelmedic.projectPath": {
+          "type": "string",
+          "default": "D:\\ClearML Project\\modelmedic",
+          "description": "Path to the existing ModelMedic Python project"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.19",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.1.6"
+  }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModelMedic Dashboard</title>
+    <link href="${cssUri}" rel="stylesheet">
+</head>
+<body>
+    <div id="loading" class="loading-container hidden">
+        <div class="spinner"></div>
+        <h2 id="loading-text">Analyzing dataset...</h2>
+        <ul id="loading-steps" class="loading-steps">
+            <li>Running dataset profiling</li>
+            <li>Training model</li>
+            <li>Running diagnostics</li>
+            <li>Generating recommendations</li>
+        </ul>
+    </div>
+
+    <div id="content" class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>MODEL MEDIC</h1>
+            <div class="header-details">
+                <div class="detail-item">
+                    <span class="detail-label">Dataset</span>
+                    <span class="detail-value" id="hdr-dataset">-</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Target</span>
+                    <span class="detail-value" id="hdr-target">-</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Model</span>
+                    <span class="detail-value" id="hdr-model">-</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Task</span>
+                    <span class="detail-value" id="hdr-task">-</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="summary-cards">
+            <div class="card">
+                <h3>Health</h3>
+                <div class="card-value" id="val-health">-</div>
+            </div>
+            <div class="card">
+                <h3 id="lbl-test-metric">Test F1</h3>
+                <div class="card-value" id="val-test-metric">-</div>
+            </div>
+            <div class="card">
+                <h3 id="lbl-train-metric">Train F1</h3>
+                <div class="card-value" id="val-train-metric">-</div>
+            </div>
+            <div class="card">
+                <h3>Issues</h3>
+                <div class="card-value" id="val-issues">-</div>
+            </div>
+        </section>
+
+        <section class="summary-cards severity-counters">
+            <div class="card severity-CRITICAL">
+                <h3>High / Critical</h3>
+                <div class="card-value" id="val-high-issues">0</div>
+            </div>
+            <div class="card severity-MEDIUM">
+                <h3>Medium</h3>
+                <div class="card-value" id="val-medium-issues">0</div>
+            </div>
+            <div class="card severity-INFO">
+                <h3>Low / Info</h3>
+                <div class="card-value" id="val-low-issues">0</div>
+            </div>
+            <div class="card">
+                <h3>Total</h3>
+                <div class="card-value" id="val-total-issues">0</div>
+            </div>
+        </section>
+
+        <section class="section" id="priority-findings-section" style="display: none;">
+            <h2>⚠ PRIORITY FINDINGS</h2>
+            <div id="priority-findings-container" class="cards-container">
+                <!-- High/Critical findings injected here -->
+            </div>
+        </section>
+
+        <section class="section" id="deep-diagnostics-section">
+            <h2>DEEP DIAGNOSTICS</h2>
+            <div id="deep-diagnostics-container" class="cards-container">
+                <!-- All other findings injected here -->
+            </div>
+        </section>
+
+        <section class="section" id="feature-diagnostics-section">
+            <h2>FEATURE DIAGNOSTICS</h2>
+            <table class="data-table" id="feature-diagnostics-table">
+                <thead>
+                    <tr>
+                        <th>FEATURE</th>
+                        <th>IMPORTANCE</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody id="feature-diagnostics-body">
+                    <!-- Feature diagnostics rows injected here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section collapsible">
+            <h2 class="collapsible-header" id="dataset-profile-header">
+                DATASET PROFILE <span class="chevron">▼</span>
+            </h2>
+            <div class="collapsible-content" id="dataset-profile-content">
+                <table class="data-table profile-table">
+                    <tbody id="profile-table-body">
+                        <!-- Profile rows injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section" id="model-stability-section" style="display: none;">
+            <h2>MODEL STABILITY</h2>
+            <div class="stability-container">
+                <table class="data-table">
+                    <tbody id="model-stability-body">
+                        <!-- Model stability info injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section" id="visualizations-section" style="display: none;">
+            <h2>VISUAL DIAGNOSTICS</h2>
+            <div id="visualizations-container" class="visual-grid">
+                <!-- Plot images injected here -->
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>RECOMMENDATIONS</h2>
+            <div id="recommendations-container" class="cards-container">
+                <!-- Recommendations injected here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="${jsUri}"></script>
+</body>
+</html>

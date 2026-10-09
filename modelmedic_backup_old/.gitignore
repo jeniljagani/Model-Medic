@@ -1,0 +1,56 @@
+# =============================================================================
+# ModelMedic — .gitignore
+# =============================================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment & credentials — NEVER COMMIT
+.env
+clearml.conf
+*.key
+*.secret
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing & coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ModelMedic runtime
+*.db
+*.sqlite
+*.sqlite3
+chroma_db/
+reports/output/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Logs
+*.log
+logs/
